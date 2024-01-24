@@ -1,21 +1,19 @@
-package com.foxmonshop.backend.helper.error;
+package com.foxmonshop.backend.handler.error;
 
-import com.foxmonshop.backend.helper.error.dto.ErrorResponseMessage;
-import lombok.NoArgsConstructor;
+import com.foxmonshop.backend.handler.error.dto.ErrorResponseMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
 
 @RestControllerAdvice
-@NoArgsConstructor
 public class ControllerExceptionHandler {
+    @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponseMessage> globalResourceNotFoundExceptionHanlder(
-        Exception e,
+        ResourceNotFoundException e,
         WebRequest webRequest
     ) {
         ErrorResponseMessage errorResponseMessage = ErrorResponseMessage
@@ -32,8 +30,7 @@ public class ControllerExceptionHandler {
         );
     }
 
-    @ExceptionHandler(InternalError.class)
-    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponseMessage> globalInternalExceptionHandler(
         Exception e,
         WebRequest webRequest

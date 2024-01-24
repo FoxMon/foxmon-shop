@@ -1,4 +1,4 @@
-package com.foxmonshop.backend.helper.error.dto;
+package com.foxmonshop.backend.handler.error.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

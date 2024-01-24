@@ -1,4 +1,4 @@
-package com.foxmonshop.backend.feature.base;
+package com.foxmonshop.backend.common;
 
 import jakarta.persistence.*;
 import lombok.Getter;
