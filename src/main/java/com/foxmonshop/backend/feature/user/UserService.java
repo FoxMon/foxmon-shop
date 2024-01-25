@@ -3,16 +3,19 @@ package com.foxmonshop.backend.feature.user;
 import com.foxmonshop.backend.feature.user.dto.UserDto;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
 @AllArgsConstructor
 public class UserService {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    private final PasswordEncoder passwordEncoder;
 
     public User createUserRequestService(UserDto.CreateRequest dto) {
-        final User user = dto.toEntity();
+        final User user = dto.toEntity(passwordEncoder);
 
         return this.userRepository.save(user);
     }
