@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Transactional
 @AllArgsConstructor
@@ -18,5 +20,14 @@ public class UserService {
         final User user = dto.toEntity(passwordEncoder);
 
         return this.userRepository.save(user);
+    }
+
+    public List<UserDto.Response> getAllUserRequestService() {
+        List<User> users = this.userRepository.findAll();
+
+         return users
+             .stream()
+             .map(UserDto.Response::new)
+             .toList();
     }
 }

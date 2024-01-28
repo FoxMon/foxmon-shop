@@ -1,11 +1,16 @@
 package com.foxmonshop.backend.feature.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "user")
 public class User {
     @Id
@@ -15,6 +20,7 @@ public class User {
     @Column(nullable = false)
     private String name;
 
+    @JsonIgnore
     @Column(nullable = false)
     private String password;
 
