@@ -1,4 +1,4 @@
-package com.foxmonshop.backend.feature.user;
+package com.foxmonshop.backend.feature.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -33,6 +33,6 @@ public class User {
     @Column
     private String birth;
 
-    @Column
-    private String address;
+    @Embedded
+    private Address address;
 }

@@ -1,5 +1,6 @@
-package com.foxmonshop.backend.feature.user;
+package com.foxmonshop.backend.feature.user.dao;
 
+import com.foxmonshop.backend.feature.user.domain.User;
 import com.foxmonshop.backend.feature.user.dto.UserDto;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;

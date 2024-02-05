@@ -1,9 +1,9 @@
 package com.foxmonshop.backend.feature.user.dto;
 
 import com.foxmonshop.backend.common.BaseEntity;
-import com.foxmonshop.backend.feature.user.User;
+import com.foxmonshop.backend.feature.user.domain.Address;
+import com.foxmonshop.backend.feature.user.domain.User;
 import lombok.*;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @RequiredArgsConstructor
@@ -22,7 +22,7 @@ public class UserDto extends BaseEntity {
 
         private String birth;
 
-        private String address;
+        private Address address;
 
         public User toEntity(PasswordEncoder passwordEncoder) {
             return User
